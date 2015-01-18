@@ -16,11 +16,18 @@ public class Test extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        chat.sendConsoleMessage("Starting up TestPlugin, Please wait....");
+        chat.sendConsoleMessage("[WARNING]: YOU SHOULDN'T BE USING THIS PLUGIN, AS IT IS ONLY FOR TESTING!");
 
+        chat.sendConsoleMessage("TestPlugin is ready to go!");
+        chat.sendConsoleMessage("Enabled.");
     }
 
     @Override
     public void onDisable() {
+        chat.sendConsoleMessage("Shutting down TestPlugin, This should only take a moment....");
 
+        chat.sendConsoleMessage("Junk cleared, shutting down.");
+        chat.sendConsoleMessage("Disabled.");
     }
 }
