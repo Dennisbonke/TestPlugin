@@ -22,7 +22,7 @@ public class PlayerJoin extends TestListener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        chat.sendMessage(player, "Welcome to the server" + player + "!");
+        chat.sendMessage(player, "Welcome to the server " + player + "!");
     }
 
 }

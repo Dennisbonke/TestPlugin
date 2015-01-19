@@ -69,4 +69,5 @@ public class Chat implements Listener {
         Bukkit.getLogger().warning(getPrefix() + message);
     }
 
+
 }

@@ -3,9 +3,10 @@ package com.dennisbonke.test;
 import com.dennisbonke.test.listener.player.PlayerJoin;
 import com.dennisbonke.test.util.Chat;
 
-import org.bukkit.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -13,20 +14,20 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class Test extends JavaPlugin {
 
-    public static String prefix = ChatColor.RED + "[TEST] " + ChatColor.WHITE;
-    public static Chat chat;
+    public static Chat chat = new Chat("TEST");
 
-    private static Test test;
+    private static Test plugin;
 
     @Override
     public void onEnable() {
         chat.sendConsoleMessage("Starting up TestPlugin, Please wait....");
         chat.sendWarningConsoleMessage("YOU SHOULDN'T BE USING THIS PLUGIN, AS IT IS ONLY FOR TESTING!");
 
-        test = this;
+        plugin = this;
+        PluginManager pm = Bukkit.getPluginManager();
 
         chat.sendConsoleMessage("Registering events....");
-        this.getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
+        pm.registerEvents(new PlayerJoin(this), this);
         chat.sendConsoleMessage("Events registered.");
 
         chat.sendConsoleMessage("TestPlugin is ready to go!");
