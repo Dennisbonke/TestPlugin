@@ -15,8 +15,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Test extends JavaPlugin {
 
     public static Chat chat = new Chat("TEST");
-
     private static Test plugin;
+
+    public static Chat getChat(){
+        return chat;
+    }
+
+    public static Test getPlugin(){
+        return plugin;
+    }
 
     @Override
     public void onEnable() {
