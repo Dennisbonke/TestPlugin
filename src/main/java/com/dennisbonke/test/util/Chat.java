@@ -65,4 +65,8 @@ public class Chat implements Listener {
         sender.sendMessage(getPrefix() + message);
     }
 
+    public void sendWarningConsoleMessage(String message) {
+        Bukkit.getLogger().warning(getPrefix() + message);
+    }
+
 }
