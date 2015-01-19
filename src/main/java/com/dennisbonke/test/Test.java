@@ -4,6 +4,8 @@ import com.dennisbonke.test.listener.player.PlayerJoin;
 import com.dennisbonke.test.util.Chat;
 
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -19,7 +21,7 @@ public class Test extends JavaPlugin {
     @Override
     public void onEnable() {
         chat.sendConsoleMessage("Starting up TestPlugin, Please wait....");
-        chat.sendWarningConsoleMessage("[WARNING]: YOU SHOULDN'T BE USING THIS PLUGIN, AS IT IS ONLY FOR TESTING!");
+        chat.sendWarningConsoleMessage("YOU SHOULDN'T BE USING THIS PLUGIN, AS IT IS ONLY FOR TESTING!");
 
         test = this;
 
@@ -37,5 +39,13 @@ public class Test extends JavaPlugin {
 
         chat.sendConsoleMessage("Junk cleared, shutting down.");
         chat.sendConsoleMessage("Disabled.");
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
+        if(commandLabel.equalsIgnoreCase("mycommand")) {
+            sender.sendMessage("IT WOKKS!!! :D");
+        }
+        return false;
     }
 }
